@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
 import { Switch } from '@headlessui/react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FileText, GitHub, Moon, Rss, Sun, User } from 'react-feather';
+import { FileText, GitHub, Moon, Sun, User } from 'react-feather';
 
 const NavBar = () => {
   const [mounted, setMounted] = useState(false);
@@ -24,30 +24,30 @@ const NavBar = () => {
       </Link>
       <div className="flex space-x-4 items-center">
         <nav className="flex space-x-4 items-center sm:space-x-6">
-          <Link href="/about" className="inline-block border-0 pb-0" passHref>
+          <Link href="/about" className="inline-block border-0 pb-0">
             <User strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
                              transition duration-300" />
           </Link>
-          <Link href="https://github.com/kaichengyan" className="inline-block border-0 pb-0" passHref>
+          <a href="https://github.com/kaichengyan" className="inline-block border-0 pb-0">
             <GitHub strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
                            transition duration-300" />
-          </Link>
-          <Link href="https://resume.skyward.moe" className="inline-block border-0 pb-0" passHref>
+          </a>
+          <a href="https://resume.skyward.moe" className="inline-block border-0 pb-0">
             <FileText strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
                            transition duration-300" />
-          </Link>
-          <Link href="/feed" target="_blank" className="inline-block border-0 pb-0" passHref>
+          </a>
+          {/* <Link href="/feed" target="_blank" className="inline-block border-0 pb-0">
             <Rss strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
                            transition duration-300" />
-          </Link>
+          </Link> */}
 
           <button className="inline-block sm:hidden border-0 pb-0"
             onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}>
