@@ -1,5 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { Providers } from './providers'
+import NavBar from '@/components/NavBar'
+import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <NavBar />
+          <main className='container mx-auto max-w-3xl'>
+            {children}
+          </main>
+        </Providers>
+      </body>
     </html>
   )
 }
