@@ -41,13 +41,17 @@ export default function PostPage({
       {post.title}
     </h1>
     <div className="mt-2 text-gray-500 dark:text-gray-400 space-x-1 text-xs">
+      <span>{format(parseISO(post.date), 'LLL d, yyyy')}</span>
+      <span>·</span>
       <span>{post.readingTime.text}</span>
-      <span>·</span>
-      <span>{post.tags?.join('/') ?? ''}</span>
-      <span>·</span>
-      <span>{format(parseISO(post.date), 'LLLL d, yyyy')}</span>
-      <span>·</span>
-      <span>{post.authors}</span>
+      {(post.tags && post.tags.length > 0) && <>
+        <span>·</span>
+        <span>{post.tags?.join(' / ') ?? ''}</span>
+      </>}
+      {(post.authors && post.authors.length > 0) && <>
+        <span>·</span>
+        <span>{post.authors?.join(' / ') ?? ''}</span>
+      </>}
     </div>
     <div className='py-2'>
       <MDXContent components={mdxComponents} />

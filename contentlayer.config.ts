@@ -38,6 +38,7 @@ export const Post = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     tags: { type: 'list', of: { type: 'string' } },
+    lang: { type: 'string', required: true },
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
@@ -70,6 +71,7 @@ export const Authors = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'data',
   documentTypes: [Post, Authors],
+  date: { timezone: 'America/Los_Angeles' },
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
