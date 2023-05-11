@@ -45,7 +45,6 @@ function Heading4({ children }: { children?: React.ReactNode }) {
 export const mdxComponents: MDXComponents = {
   // Override the default <a> element to use the next/link component.
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-  code: ({ children }) => <code className="font-mono text-sm text-rose-600 dark:text-cyan-400 px-1 py-0.5">{children}</code>,
   p: ({ children }) => <p className="my-2">{children}</p>,
   h1: Heading1,
   h2: Heading2,
