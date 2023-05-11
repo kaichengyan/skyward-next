@@ -18,7 +18,7 @@ authors:
 
 向 `list` 末尾添加元素使用 `l.append(x)`，从末尾移除元素则是 `l.pop()`。这是 `list` 作为栈使用的基本操作。如果要在 `list` 中间插入元素，则需要使用 `l.insert(idx, x)`，移除则是 `l.pop(idx)`。
 
-此外还有一些方便的操作，比如 `l.count(x)`，`l.index(x)`，都是 $O(n)$ 复杂度，一般不太常用到。
+此外还有一些方便的操作，比如 `l.count(x)`，`l.index(x)`，都是 $\O(n)$ 复杂度，一般不太常用到。
 
 另外很重要的是 `list` 支持的比较运算符。注意 Python 的运算符是可以通过 dunder method 重载的，所以 `==` （即 `__eq__`） 的比较一般相当于 Java 中的 `equals`，而 `is` 才是 Java 中的 `==`，即 reference equality。因为重载的特性，所以 `==` 对于 list 来说就是最自然的比较，两个 `list` 相等当且仅当它们长度相同且对应元素相等；而不等号的比较也十分自然，即是字典序的比较。
 
@@ -41,7 +41,7 @@ authors:
 
 ## collections.deque 双端队列
 
-`deque` （发音为 deck）则是 `collections` 中非常常用的一种数据结构，即双端队列，可以用作 LIFO 的栈也可以用作 FIFO 队列（不过栈一般使用 `list` 就够了），两端操作都为 $O(1)$，在 BFS 之类的算法中非常有用。可以通过构造器传入一个 iterable 来提供 `deque` 的初始值。
+`deque` （发音为 deck）则是 `collections` 中非常常用的一种数据结构，即双端队列，可以用作 LIFO 的栈也可以用作 FIFO 队列（不过栈一般使用 `list` 就够了），两端操作都为 $\O(1)$，在 BFS 之类的算法中非常有用。可以通过构造器传入一个 iterable 来提供 `deque` 的初始值。
 
 它支持的方法有 `q.append`，`q.appendleft`，`q.pop`，`q.popleft`；也有 `q.extend` 和 `q.extendleft`，不过在算法题中应该不会常用。还有一个方便的 `q.rotate(n)` 可以右移元素，不过应该也不常用。
 
@@ -51,7 +51,7 @@ authors:
 
 ## collections.OrderedDict 有序字典
 
-`OrderedDict` 可以记住插入元素的顺序，内部使用链表实现，所以 `od.popitem(True)` （从末尾移除）和 `od.popitem(False)` （从开头移除）都是 $O(1)$ 的操作。
+`OrderedDict` 可以记住插入元素的顺序，内部使用链表实现，所以 `od.popitem(True)` （从末尾移除）和 `od.popitem(False)` （从开头移除）都是 $\O(1)$ 的操作。
 
 ## heapq 堆队列算法
 

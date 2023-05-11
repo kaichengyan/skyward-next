@@ -81,7 +81,7 @@ export default makeSource({
     rehypePlugins: [
       rehypeSlug,
       rehypeAutolinkHeadings,
-      rehypeKatex,
+      [rehypeKatex, { macros: { '\\O': '\\mathcal{O}' }}],
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { ignoreMissing: true }],
       rehypePresetMinify,
