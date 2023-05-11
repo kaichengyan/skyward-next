@@ -1,4 +1,5 @@
 import './globals.css'
+import './prism.css'
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
 import NavBar from '@/components/NavBar'
