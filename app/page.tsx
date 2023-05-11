@@ -7,7 +7,8 @@ function PostCard(post: Post) {
     <Link key={post.slug} href={`/${post.slug}`} passHref>
       <div className="border-none rounded cursor-pointer -mx-2 mb-2 p-2 hover:opacity-80 transition duration-200">
         <h2 className="flex justify-start items-center space-x-2 mb-2">
-          <span className='inline-block align-middle rounded text-xs px-1 py-0.5 text-gray-800 bg-gray-200 dark:text-gray-200 dark:bg-gray-800'>
+          <span className='inline-block align-middle rounded text-xs px-1 py-0.5 whitespace-nowrap
+                           text-gray-800 bg-gray-200 dark:text-gray-200 dark:bg-gray-800'>
             {post.lang?.startsWith('zh') ? '中文' : ''}
             {post.lang?.startsWith('en') ? 'En' : ''}
           </span>
