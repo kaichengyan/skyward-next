@@ -7,6 +7,9 @@ dependencies:
   '@types/lodash':
     specifier: ^4.14.194
     version: 4.14.194
+  '@types/mdx':
+    specifier: ^2.0.5
+    version: 2.0.5
   '@types/node':
     specifier: 20.1.1
     version: 20.1.1

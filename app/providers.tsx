@@ -8,5 +8,5 @@ export function Providers({
 }: {
   children: React.ReactNode
 }) {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return <ThemeProvider attribute="class">{children}</ThemeProvider>
 }

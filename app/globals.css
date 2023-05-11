@@ -2,18 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Your default theme */
-  --background: white;
-  --foreground: black;
-}
-
-[data-theme='dark'] {
-  --background: black;
-  --foreground: white;
-}
-
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
+  padding: 0;
+  margin: 0;
+  @apply antialiased;
+}
+
+a {
+  color: inherit;
+  @apply border-b border-b-gray-300 transition-all duration-100 no-underline dark:border-b-gray-700 hover:border-b-gray-500;
+}
+
+p,
+li {
+  @apply text-neutral-800 dark:text-neutral-200 leading-7 overflow-ellipsis overflow-hidden;
+}
+
+code {
+  @apply font-mono;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  @apply bg-fuchsia-300/20 dark:bg-fuchsia-500/20;
+}
+
+button {
+  background: none;
+  padding: 0;
 }
