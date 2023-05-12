@@ -1,5 +1,5 @@
-import Rss from 'rss'
-import { allPosts } from 'contentlayer/generated'
+import Rss from "rss";
+import { allPosts } from "contentlayer/generated";
 
 const SITE_URL = "https://www.skyward.moe";
 
@@ -15,7 +15,7 @@ export async function GET() {
   allPosts.forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.summary ?? '',
+      description: post.summary ?? "",
       url: `${SITE_URL}/${post.slug}`,
       date: post.date,
     });

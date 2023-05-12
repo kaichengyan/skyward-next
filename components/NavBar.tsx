@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Home, User } from 'react-feather';
-import ThemeSwitch from './ThemeSwitch';
+import Link from "next/link";
+import { Home, User } from "react-feather";
+import ThemeSwitch from "./ThemeSwitch";
 
 const NavBar = () => {
   return (
@@ -12,16 +12,20 @@ const NavBar = () => {
         <nav className="flex space-x-4 items-center sm:space-x-6">
           <ThemeSwitch />
           <Link href="/" className="inline-block border-0 pb-0">
-            <Home strokeWidth="1"
+            <Home
+              strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
-                             transition duration-300" />
+                             transition duration-300"
+            />
           </Link>
           <Link href="/about" className="inline-block border-0 pb-0">
-            <User strokeWidth="1"
+            <User
+              strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
-                             transition duration-300" />
+                             transition duration-300"
+            />
           </Link>
         </nav>
       </div>

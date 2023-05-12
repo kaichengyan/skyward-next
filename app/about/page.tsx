@@ -13,9 +13,15 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-4">
-        <p>You can find me on Twitter as <Link href="https://twitter.com/skywardpixel">@skywardpixel</Link>.</p>
-        <p>I sometimes stream Hearthstone or Genshin Impact on <Link href="https://www.twitch.tv/sukiyakidonburi">Twitch</Link>.</p>
+        <p>
+          You can find me on Twitter as{" "}
+          <Link href="https://twitter.com/skywardpixel">@skywardpixel</Link>.
+        </p>
+        <p>
+          I sometimes stream Hearthstone or Genshin Impact on{" "}
+          <Link href="https://www.twitch.tv/sukiyakidonburi">Twitch</Link>.
+        </p>
       </section>
     </main>
-  )
+  );
 }

@@ -1,26 +1,27 @@
-import './globals.css'
-import './prism.css'
-import 'katex/dist/katex.min.css'
-import { Inter } from 'next/font/google'
-import { Providers } from './providers'
-import NavBar from '@/components/NavBar'
-import React from 'react'
-import Footer from '@/components/Footer'
+import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import { VercelWebAnalytics } from "@/components/VercelWebAnalytics";
+import "katex/dist/katex.min.css";
+import { Inter } from "next/font/google";
+import React from "react";
+import "./globals.css";
+import "./prism.css";
+import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    template: '%s | Skyward',
-    default: 'Skyward',
+    template: "%s | Skyward",
+    default: "Skyward",
   },
-  description: '越而胜己',
-}
+  description: "越而胜己",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -28,12 +29,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <NavBar />
-          <main className='container mx-auto max-w-3xl px-6 my-2'>
+          <main className="container mx-auto max-w-3xl px-6 my-2">
             {children}
           </main>
-          <Footer/>
+          <Footer />
         </Providers>
+        <VercelWebAnalytics />
       </body>
     </html>
-  )
+  );
 }
