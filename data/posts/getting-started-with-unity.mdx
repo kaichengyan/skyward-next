@@ -40,10 +40,10 @@ private void Awake() {
 
 Often scripts need to interact with other Game Objects. One way to get a reference to other objects is using functions like `FindObjectOfType` and `FindObjectWithTag`. However, there are usually better ways.
 
-If our script only needs to talk to a fixed Game Object, we can add a `Serializeable` field, and drag the other Game Object to the field in the Unity inspector. This is particularly useful for communication between Game Objects within a Prefab.
+If our script only needs to talk to a fixed Game Object, we can add a `SerializeField`, and drag the other Game Object to the field in the Unity inspector. This is particularly useful for communication between Game Objects within a Prefab.
 
 ```cs
-[Serializeable] private SomeComponent otherObject;
+[SerializeField] private SomeComponent otherObject;
 
 otherObject.doSomething();
 ```
@@ -57,7 +57,7 @@ public event EventHandler OnSomethingHappened;
 OnSomethingHappened?.Invoke(this, EventArgs.Empty);
 
 // Receiver
-[Serializeable] private SendingComponent otherObject;
+[SerializeField] private SendingComponent otherObject;
 
 private Start() {
   otherObject.OnSomethingHappened += OtherObject_OnSomethingHappened;
