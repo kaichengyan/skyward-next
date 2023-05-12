@@ -9,6 +9,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
+import rehypeImgSize from 'rehype-img-size';
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
@@ -41,6 +42,7 @@ export const Post = defineDocumentType(() => ({
     lang: { type: 'string', required: true },
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
+    hidden: { type: 'boolean' },
     summary: { type: 'string' },
     images: { type: 'list', of: { type: 'string' } },
     authors: { type: 'list', of: { type: 'string' } },
@@ -84,6 +86,8 @@ export default makeSource({
       [rehypeKatex, { macros: { '\\O': '\\mathcal{O}' }}],
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { ignoreMissing: true }],
+      // @ts-ignore
+      [rehypeImgSize, { dir: 'public' }],
       rehypePresetMinify,
     ],
   },

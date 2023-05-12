@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated'
-import { mdxComponents } from '@/components/mdx-components'
+import { mdxComponents } from '@/app/mdx-components'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { format, parseISO } from 'date-fns'
 import { notFound } from 'next/navigation'
@@ -20,9 +20,11 @@ export function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug.split('/'),
-  }))
+  return allPosts
+    .filter((post) => !post.draft)
+    .map((post) => ({
+      slug: post.slug.split('/'),
+    }))
 }
 
 export default function PostPage({

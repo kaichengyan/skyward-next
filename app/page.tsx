@@ -10,7 +10,7 @@ function PostCard(post: Post) {
           <span className='inline-block align-middle rounded text-xs px-1 py-0.5 whitespace-nowrap
                            text-gray-800 bg-gray-200 dark:text-gray-200 dark:bg-gray-800'>
             {post.lang?.startsWith('zh') ? '中文' : ''}
-            {post.lang?.startsWith('en') ? 'En' : ''}
+            {post.lang?.startsWith('en') ? 'ENG' : ''}
           </span>
           <span className='font-bold text-xl'> {post.title} </span>
         </h2>
@@ -34,7 +34,9 @@ function PostCard(post: Post) {
 }
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const posts = allPosts
+    .filter((post) => !post.draft && !post.hidden)
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return <>
     <h1 className="font-bold text-3xl mt-8 mb-8">
