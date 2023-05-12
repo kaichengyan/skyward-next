@@ -1,0 +1,89 @@
+---
+type: Post
+title: Getting Started with Unity
+date: 2023-05-12
+lang: en-US
+tags:
+  - Programming
+  - Unity
+authors:
+  - Kyle
+---
+
+Recently, I have been following a [Unity tutorial](https://www.youtube.com/watch?v=AmGSEH7QcDg) on YouTube made by [Code Monkey](https://unitycodemonkey.com/). The 10-hour tutorial is absolutely amazing, and introduced many concepts in a fun Overcooked-like project.
+
+Before this tutorial, I have tried to pick up Unity a lot of times. Every time that I tried, it felt that Unity is a complete mess. Code Monkey did a great job explaining how Unity works in general, and talked about many good scripting practices that many tutorials just do not care about.
+
+## The Game Object-Component System
+
+Unity games are made of Scenes, and a Scene is a tree of Game Objects. Each Game Object is associated with a Transform component, which determines the position, rotation and scale of the Game Object.
+
+In addition to the Transform component, a Game Object can have arbitrary other components that gives it more features. For example, a renderer component gives the Game Object a body, a collider component enables collision detection, a rigid body component enables physics simulation, etc.
+
+Besides various built-in components, the developer can create their own components using `MonoBehaviour` scripts. `MonoBehaviour` scripts have various lifecycle hooks, like `Awake`, `Start` and `Update`, which Unity calls at various times.
+
+These scripts can grow large and get out of hand pretty quickly, so it's best practice to break down and decouple scripts into smaller scripts. For example, we should have separate scripts for handling visuals, and maybe another separate script for handling audio.
+
+### Communication within the same Game Object
+
+Components on the same Game Object can find each other with the `GetComponent<T>` method. Usually, the component reference is stored in a private field, and initialized in `Awake`.
+
+```cs
+private RigidBody rigidBody;
+
+private void Awake() {
+  rigidBody = GetComponent<RigidBody>();
+}
+```
+
+### Communication across Game Objects
+
+Often scripts need to interact with other Game Objects. One way to get a reference to other objects is using functions like `FindObjectOfType` and `FindObjectWithTag`. However, there are usually better ways.
+
+If our script only needs to talk to a fixed Game Object, we can add a `Serializeable` field, and drag the other Game Object to the field in the Unity inspector. This is particularly useful for communication between Game Objects within a Prefab.
+
+```cs
+[Serializeable] private SomeComponent otherObject;
+
+otherObject.doSomething();
+```
+
+If our script does not know what Game Objects it might be talking to, the better option might be to use events. With C# events, the receiver objects can subscribe to the event and react whenever the event is fired in the sender object.
+
+```cs
+// Sender
+public event EventHandler OnSomethingHappened;
+
+OnSomethingHappened?.Invoke(this, EventArgs.Empty);
+
+// Receiver
+[Serializeable] private SendingComponent otherObject;
+
+private Start() {
+  otherObject.OnSomethingHappened += OtherObject_OnSomethingHappened;
+}
+
+private void OtherObject_OnSomethingHappened(object sender, EventArgs e) {
+  // ...
+}
+```
+
+## Scriptable Objects
+
+Scriptable Objects are another type of scripts in Unity. Unlike `MonoBehaviour` scripts, `ScriptableObject` scripts don't live inside Game Objects. Rather it lives inside the Asset directory in the project, and can be used by many Game Objects and even many scenes.
+
+It's probably easy to think of Scriptable Objects as data containers like C structs. A C# script defines a data schema, and then instances of this struct can be created as files in your Asset folder. If we add the `CreateAssetMenu` attribute to the class, we can create instances of the Scriptable Object using the right-click menu in Unity.
+
+```cs
+[CreateAssetMenu()]
+public class SomeSO : ScriptableObject {
+  public string someField;
+  public int someOtherField;
+}
+```
+
+Besides serving as data containers, Scriptable Objects can also act as communication channels between scenes. This is slightly more advanced, and wasn't covered in the tutorial.
+
+## To Be Continued
+
+I am currently 8 hours into the tutorial, and plan to follow through with it. Unity is a crazy-popular game engine, but somehow a lot of tutorials on the market are very low quality, and it feels that the tutorial maker doesn't even understand what they are doing. I'm glad that I found Code Monkey's tutorial, and would recommend it to anyone interested in learning to build games.
