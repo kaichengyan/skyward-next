@@ -1,5 +1,6 @@
+import FullWidthImage from "@/components/FullWidthImage";
+import SimpleImage from "@/components/SimpleImage";
 import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -51,30 +52,12 @@ function Heading4({ children }: { children?: React.ReactNode }) {
   );
 }
 
-function MyImage(props: {
-  src?: string;
-  alt?: string;
-  width?: string | number | undefined;
-  height?: string | number | undefined;
-}) {
-  // Assume that images have src, and rehypeImgSize have added width and height.
-  return (
-    <Image
-      src={props.src!}
-      alt={props.alt || ""}
-      width={props.width! as number}
-      height={props.height! as number}
-      sizes="100vw"
-      style={{ width: "100vw", height: "auto" }}
-    />
-  );
-}
-
 export const mdxComponents: MDXComponents = {
   // Override the default <a> element to use the next/link component.
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
   p: ({ children }) => <p className="my-2">{children}</p>,
-  img: MyImage,
+  FullWidthImage: FullWidthImage,
+  img: SimpleImage,
   h1: Heading1,
   h2: Heading2,
   h3: Heading3,

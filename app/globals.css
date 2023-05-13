@@ -79,3 +79,13 @@ pre {
   color: rgb(156, 163, 175); /* Line number color */
   content: attr(line);
 }
+
+.full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
