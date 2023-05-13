@@ -17,7 +17,7 @@ export function generateMetadata({ params }: { params: { slug: string[] } }) {
   };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allPosts
     .filter((post) => !post.draft)
     .map((post) => ({
