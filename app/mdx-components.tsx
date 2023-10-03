@@ -64,4 +64,6 @@ export const mdxComponents: MDXComponents = {
   h4: Heading4,
   h5: Heading4,
   h6: Heading4,
+  ol: ({ children }) => <ol className="list-decimal list-inside">{children}</ol>,
+  ul: ({ children }) => <ul className="list-disc list-inside">{children}</ul>,
 };
