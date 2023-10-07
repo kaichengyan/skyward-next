@@ -33,7 +33,7 @@ MapReduce application, we just need 2 functions:
 In Go code, the function signatures might look like:
 
 ```go
-func Mapf(filename string, contents string) []mr.KeyValue {}
+func Mapf(filename string, contents string) []mr.KeyValue
 func Reducef(key string, values []string) string
 ```
 
@@ -61,7 +61,7 @@ key in that bucket.
 I modeled all communication between the Worker and the Coordinator as a single
 RPC, with a resource `Task`.
 
-```
+```go
 type TaskType string
 
 const (
@@ -273,7 +273,7 @@ We can simply set a go routine when we assign a task. The go routine sleeps for
 10 seconds, and come back to set `TaskStates[i]` as `Unstarted` if it's not
 completed yet.
 
-```
+```go
 	// ...
 	for i, state := range c.taskStates {
 		if state == Unstarted {

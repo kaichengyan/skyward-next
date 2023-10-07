@@ -110,7 +110,7 @@ main(int argc, char *argv[])
 
 At this point, we realize that the first sieving process is working with 2 pipes: a pipe created by its
 parent (`pp`) and a pipe created by itself (`newpipe`). The parent process writes to `pp[1]`. The sieving
-process it self reads from `pp[0]` and writes to `newpipe[1]`. The sieving process will spawn another child,
+process itself reads from `pp[0]` and writes to `newpipe[1]`. The sieving process will spawn another child,
 which will read from `newpipe[0]`.
 
 Let's try to add the `fork()` call to the above code:
