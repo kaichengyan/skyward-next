@@ -10,14 +10,15 @@ export function generateStaticParams() {
 }
 
 export default function TagPage({ params }: { params: { tag: string } }) {
+  const tag = decodeURIComponent(params.tag);
   const posts = allPosts
     .filter((post) => !post.draft && !post.hidden)
-    .filter((post) => post.tags?.includes(params.tag))
+    .filter((post) => post.tags?.includes(tag))
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
   return (
     <>
-      <h1 className="font-bold text-3xl mt-8 mb-8">🏷️ Tag: {params.tag}</h1>
+      <h1 className="font-bold text-3xl mt-8 mb-8">🏷️ Tag: {tag}</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
