@@ -15,7 +15,11 @@ a {
 
 p,
 li {
-  @apply text-neutral-800 dark:text-neutral-200 leading-7 overflow-ellipsis overflow-hidden;
+  @apply text-neutral-800 dark:text-neutral-200 leading-7 text-ellipsis overflow-hidden;
+}
+
+li p {
+  @apply inline;
 }
 
 code {

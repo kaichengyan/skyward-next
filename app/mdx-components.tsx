@@ -45,7 +45,7 @@ function Heading4({ children }: { children?: React.ReactNode }) {
     <h4
       className="before:content-['#'] before:-ml-5 before:w-5 before:inline-block
              before:font-light before:text-rose-600 before:dark:text-cyan-400
-             font-bold mt-4 mb-2 text-md leading-7"
+             font-bold mt-4 mb-2 text-base leading-7"
     >
       {children}
     </h4>
@@ -64,6 +64,8 @@ export const mdxComponents: MDXComponents = {
   h4: Heading4,
   h5: Heading4,
   h6: Heading4,
-  ol: ({ children }) => <ol className="list-decimal list-inside">{children}</ol>,
+  ol: ({ children }) => (
+    <ol className="list-decimal list-inside">{children}</ol>
+  ),
   ul: ({ children }) => <ul className="list-disc list-inside">{children}</ul>,
 };
