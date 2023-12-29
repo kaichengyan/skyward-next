@@ -31,11 +31,11 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
   if (!page) notFound();
 
   return (
-    <main className="py-2 sm:py-8">
+    <>
       <h1 className="font-bold text-3xl my-4">{page.title}</h1>
       <article className="py-4">
         <Mdx code={page.body.code} />
       </article>
-    </main>
+    </>
   );
 }

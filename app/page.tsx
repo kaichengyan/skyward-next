@@ -8,13 +8,13 @@ export default function Home() {
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
   return (
-    <main className="py-2 sm:py-8">
+    <>
       <h1 className="font-bold text-3xl my-4">✍️ Skyward</h1>
       <div className="py-4">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
       </div>
-    </main>
+    </>
   );
 }
