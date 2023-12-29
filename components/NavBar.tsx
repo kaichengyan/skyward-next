@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Coffee, Home, User } from "react-feather";
+import { Headphones, Home, Smile } from "react-feather";
 import ThemeSwitch from "./ThemeSwitch";
 
 const NavBar = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
             />
           </Link>
           <Link href="/about" className="inline-block border-0 pb-0">
-            <User
+            <Smile
               strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
@@ -28,7 +28,7 @@ const NavBar = () => {
             />
           </Link>
           <Link href="/now" className="inline-block border-0 pb-0">
-            <Coffee
+            <Headphones
               strokeWidth="1"
               className="stroke-gray-600 hover:stroke-gray-900
                            dark:stroke-gray-400 dark:hover:stroke-gray-200
