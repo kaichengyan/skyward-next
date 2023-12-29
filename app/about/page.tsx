@@ -6,8 +6,10 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold my-4">About me.</h1>
 
       <section className="mt-4">
-        <p>My name is Kyle.</p>
-        <p>I come from Shanghai, China.</p>
+        <p>
+          My name is Kyle. I grew up in Shanghai, China, and moved to the United
+          States in 2016.
+        </p>
       </section>
 
       <section className="mt-4">
@@ -16,7 +18,7 @@ export default function AboutPage() {
           <Link href="https://twitter.com/skywardpixel">@skywardpixel</Link>.
         </p>
         <p>
-          I sometimes stream Hearthstone or Genshin Impact on{" "}
+          I sometimes stream Hearthstone and Genshin Impact on{" "}
           <Link href="https://www.twitch.tv/sukiyakidonburi">Twitch</Link>.
         </p>
       </section>

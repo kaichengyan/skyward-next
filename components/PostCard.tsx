@@ -5,7 +5,7 @@ import type { Post } from "contentlayer/generated";
 export default function PostCard(post: Post) {
   return (
     <Link key={post.slug} href={`/${post.slug}`} passHref>
-      <div className="border-none rounded-md cursor-pointer -mx-2 mb-2 p-2 hover:opacity-80 transition duration-200">
+      <div className="border-none rounded-md cursor-pointer -mx-2 mb-6 px-2 hover:opacity-80 transition duration-200">
         <h2 className="flex justify-start items-center space-x-2 mb-2">
           <span
             className="inline-block align-middle rounded text-xs px-1 py-0.5 whitespace-nowrap

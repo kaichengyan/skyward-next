@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NowPage() {
   return (
     <main className="py-8">
@@ -6,8 +8,11 @@ export default function NowPage() {
       <section className="mt-4">
         <p>I live in Bothell, WA.</p>
         <p>
-          I work at Google Seattle in South Lake Union, and commute to the
-          office twice a week.
+          I work at{" "}
+          <Link href="https://www.google.com/about/careers/applications/locations/seattle-kirkland-bellevue-redmond/">
+            Google Seattle
+          </Link>{" "}
+          in South Lake Union, and commute to the office twice a week.
         </p>
       </section>
 
@@ -17,10 +22,20 @@ export default function NowPage() {
           swimming.
         </p>
         <p>Playing Genshin Impact, Honkai: Star Rail.</p>
-        <p>My favorite character from Genshin Impact is Furina and Hu Tao.</p>
         <p>
           Also casually playing Overwatch 2, World of Warcraft Classic, and
           Hearthstone.
+        </p>
+        <p>
+          I main{" "}
+          <Link href="https://overwatch.blizzard.com/en-us/heroes/kiriko/">
+            Kiriko
+          </Link>{" "}
+          and{" "}
+          <Link href="https://overwatch.blizzard.com/en-us/heroes/ana/">
+            Ana
+          </Link>{" "}
+          in Overwatch. I play mostly resto druid in WoW.
         </p>
       </section>
 
