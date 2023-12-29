@@ -57,6 +57,24 @@ export const Post = defineDocumentType(() => ({
   computedFields,
 }));
 
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: "pages/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    lastmod: { type: "date" },
+    draft: { type: "boolean" },
+    hidden: { type: "boolean" },
+    summary: { type: "string" },
+    images: { type: "list", of: { type: "string" } },
+    layout: { type: "string" },
+    bibliography: { type: "string" },
+    canonicalUrl: { type: "string" },
+  },
+  computedFields,
+}));
+
 export const Authors = defineDocumentType(() => ({
   name: "Authors",
   filePathPattern: "authors/**/*.mdx",
@@ -76,7 +94,7 @@ export const Authors = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "data",
-  documentTypes: [Post, Authors],
+  documentTypes: [Post, Authors, Page],
   date: { timezone: "America/Los_Angeles" },
   mdx: {
     cwd: process.cwd(),

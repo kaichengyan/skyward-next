@@ -99,7 +99,7 @@ article {
   dl,
   img,
   video {
-    @apply mb-4;
+    @apply mb-2;
   }
 
   ul {
