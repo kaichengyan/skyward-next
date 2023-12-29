@@ -18,10 +18,6 @@ li {
   @apply text-neutral-800 dark:text-neutral-200 leading-7 text-ellipsis overflow-hidden;
 }
 
-li p {
-  @apply inline;
-}
-
 code {
   @apply font-mono text-sm text-rose-600 dark:text-cyan-400 px-1 py-0.5;
 }
@@ -91,4 +87,54 @@ pre {
   position: relative;
   right: 50%;
   width: 100vw;
+}
+
+article {
+  p,
+  ul,
+  ol,
+  blockquote,
+  pre,
+  table,
+  dl,
+  img,
+  video {
+    @apply mb-4;
+  }
+
+  ul {
+    @apply list-disc list-inside;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  li {
+    @apply ml-4;
+  }
+
+  li > p {
+    @apply inline;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply before:content-['#'] before:-ml-5 before:w-5 before:inline-block
+    before:font-light before:text-rose-600 before:dark:text-cyan-400
+    font-bold mt-4 mb-2 leading-7;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
 }

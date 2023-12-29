@@ -1,6 +1,5 @@
 import { allPosts } from "contentlayer/generated";
-import { mdxComponents } from "@/app/mdx-components";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { Mdx } from "@/components/Mdx";
 import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 import lodash from "lodash";
@@ -33,8 +32,6 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
 
   if (!post) notFound();
 
-  const MDXContent = useMDXComponent(post.body.code);
-
   return (
     <>
       {post.tags && post.tags.length > 0 && (
@@ -56,9 +53,9 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
           </>
         )}
       </div>
-      <div className="py-2">
-        <MDXContent components={mdxComponents} />
-      </div>
+      <article className="py-4">
+        <Mdx code={post.body.code} />
+      </article>
     </>
   );
 }
