@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import lodash from "lodash";
 
 export function generateMetadata({ params }: { params: { slug: string[] } }) {
-  const post = allPages.find((it) =>
+  const page = allPages.find((it) =>
     lodash.isEqual(it.slug.split("/"), params.slug)
   );
 
-  if (!post) notFound();
+  if (!page) notFound();
 
   return {
-    title: post.title,
+    title: page.title,
   };
 }
 
