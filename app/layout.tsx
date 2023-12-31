@@ -7,15 +7,17 @@ import React from "react";
 import "./globals.css";
 import "./prism.css";
 import { Providers } from "./providers";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     template: "%s | Skyward",
     default: "Skyward",
   },
-  description: "越而胜己",
+  description: "Beyond awesome.",
+  authors: [{ name: "Kyle Yan" }],
 };
 
 export default function RootLayout({
