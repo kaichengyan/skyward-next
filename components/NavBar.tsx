@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Headphones, Home, Smile } from "react-feather";
 import ThemeSwitch from "./ThemeSwitch";
 
-const NavBar = () => {
+export default function NavBar() {
   return (
     <header className="flex p-6 z-50 items-center justify-between">
       <div className="flex space-x-4 items-center">
@@ -66,6 +66,4 @@ const NavBar = () => {
       </nav>
     </header>
   );
-};
-
-export default NavBar;
+}
