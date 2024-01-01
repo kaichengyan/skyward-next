@@ -54,6 +54,18 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
         )}
       </div>
       <article className="py-4">
+        {post.machineTranslated && (
+          <div
+            className="flex items-center space-x-2 rounded px-4 py-2 my-2
+                bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-200"
+          >
+            <div className="i-ic-round-translate"></div>
+            <span>
+              This post is machine-translated using ChatGPT from another
+              language.
+            </span>
+          </div>
+        )}
         <Mdx code={post.body.code} />
       </article>
     </>

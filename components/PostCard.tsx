@@ -8,23 +8,13 @@ export default function PostCard(post: Post) {
       <div className="border-none rounded-md cursor-pointer mb-6 hover:opacity-80 transition duration-200">
         <h2 className="flex justify-start items-center space-x-2 mb-1">
           <span className="font-bold text-xl">{post.title}</span>
-          {post.lang?.startsWith("zh") ? (
-            <span
-              className="inline-block align-middle rounded text-xs px-1 py-0.5 whitespace-nowrap
-                 text-gray-600 bg-gray-200 dark:text-gray-200 dark:bg-gray-800"
-            >
-              ZH
-            </span>
+          {post.machineTranslated ? (
+            <div className="i-ic-round-translate"></div>
           ) : (
             ""
           )}
-          {post.machineTranslated ? (
-            <span
-              className="inline-block align-middle rounded text-xs px-1 py-0.5 whitespace-nowrap
-                 text-gray-600 bg-gray-200 dark:text-gray-200 dark:bg-gray-800"
-            >
-              Translated
-            </span>
+          {post.lang?.startsWith("zh") ? (
+            <div className="i-icon-park-outline-chinese"></div>
           ) : (
             ""
           )}

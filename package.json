@@ -53,7 +53,10 @@
     "util": "^0.12.5"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/icon-park-outline": "^1.1.15",
     "@unocss/postcss": "^0.58.2",
+    "@unocss/preset-icons": "^0.58.2",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.10.0",
     "prettier": "2.8.8",
