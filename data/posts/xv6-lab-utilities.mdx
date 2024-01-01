@@ -9,40 +9,46 @@ authors:
   - Kyle
 ---
 
-I have been recently watching lecture videos from MIT's Operating Systems class, and doing the xv6
-labs. I took Operating Systems in college, but my professor was not very good at explaining things.
-He does not use slides, but simply draws some very abstract diagram on the blackboard, without much
-annotation. I thought taking the class again following the MIT lecture videos would help me
-understand Operating Systems better, and maybe someday allow me to write my own.
+I have been recently watching lecture videos from MIT's Operating Systems class,
+and doing the xv6 labs. I took Operating Systems in college, but my professor
+was not very good at explaining things. He does not use slides, but simply draws
+some very abstract diagram on the blackboard, without much annotation. I thought
+taking the class again following the MIT lecture videos would help me understand
+Operating Systems better, and maybe someday allow me to write my own.
 
-I finished the first lab “[Utilities](https://pdos.csail.mit.edu/6.828/2023/labs/util.html)” in a
-bit over 2 hours. The lab mainly consists of writing 5 short user-space programs for xv6. These are
-“utility” programs that can be found in UNIX, and are implemented using existing system calls in
-xv6. Most tasks aren’t challenging and should be very easy for someone with some C experience, but
-the `primes` task took me over 1.5 hours.
+I finished the first lab
+“[Utilities](https://pdos.csail.mit.edu/6.828/2023/labs/util.html)” in a bit
+over 2 hours. The lab mainly consists of writing 5 short user-space programs for
+xv6. These are “utility” programs that can be found in UNIX, and are implemented
+using existing system calls in xv6. Most tasks aren’t challenging and should be
+very easy for someone with some C experience, but the `primes` task took me over
+1.5 hours.
 
 ## The Sieve of Eratosthenes
 
 The `primes` program implements the **[Sieve of
-Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)** algorithm using `fork` and
-`pipe`. The main idea is described in [this article](https://swtch.com/~rsc/thread/).
+Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)** algorithm
+using `fork` and `pipe`. The main idea is described in [this
+article](https://swtch.com/~rsc/thread/).
 
-Briefly, the `primes` program has a root process that sends numbers 2 through 35 to a sieve process.
-The sieve process can spawn more sieve processes, and all sieve processes do the same thing:
+Briefly, the `primes` program has a root process that sends numbers 2 through 35
+to a sieve process. The sieve process can spawn more sieve processes, and all
+sieve processes do the same thing:
 
 1. Receive a number $p$ from its parent.
 1. Print $p$ as a prime.
-1. Continue receiving numbers from the parent. Spawn a child, and pass any number that is **not a
-   multiple of $p$** to the child.
+1. Continue receiving numbers from the parent. Spawn a child, and pass any
+   number that is **not a multiple of $p$** to the child.
 1. Exit when the parent is no longer sending numbers (closes the pipe).
 
-In the end, each sieving process will print out exactly one prime, and rule out all multiples of that
-prime for future processes.
+In the end, each sieving process will print out exactly one prime, and rule out
+all multiples of that prime for future processes.
 
 ## The root process
 
-Things seem straightforward so far. Since the root process is different from the sieve processes, we
-would need to handle it separately. We can write the following skeleton pretty quickly:
+Things seem straightforward so far. Since the root process is different from the
+sieve processes, we would need to handle it separately. We can write the
+following skeleton pretty quickly:
 
 ```c
 #include "kernel/types.h"
@@ -72,8 +78,9 @@ main(int argc, char *argv[])
 
 ## The first sieve process
 
-The [article](https://swtch.com/~rsc/thread/) describes what each sieve process should do in pseudocode.
-We can translate it to C code and try to plug it into our skeleton:
+The [article](https://swtch.com/~rsc/thread/) describes what each sieve process
+should do in pseudocode. We can translate it to C code and try to plug it into
+our skeleton:
 
 ```c
 int
@@ -108,10 +115,11 @@ main(int argc, char *argv[])
 }
 ```
 
-At this point, we realize that the first sieving process is working with 2 pipes: a pipe created by its
-parent (`pp`) and a pipe created by itself (`newpipe`). The parent process writes to `pp[1]`. The sieving
-process itself reads from `pp[0]` and writes to `newpipe[1]`. The sieving process will spawn another child,
-which will read from `newpipe[0]`.
+At this point, we realize that the first sieving process is working with 2
+pipes: a pipe created by its parent (`pp`) and a pipe created by itself
+(`newpipe`). The parent process writes to `pp[1]`. The sieving process itself
+reads from `pp[0]` and writes to `newpipe[1]`. The sieving process will spawn
+another child, which will read from `newpipe[0]`.
 
 Let's try to add the `fork()` call to the above code:
 
@@ -153,19 +161,20 @@ main(int argc, char *argv[])
 }
 ```
 
-After `forking()`, our current sieving process will start forwarding `n` to the next sieving process.
-But what does the next sieving process do (the `???`)?
+After `forking()`, our current sieving process will start forwarding `n` to the
+next sieving process. But what does the next sieving process do (the `???`)?
 
 ## The next sieving process
 
-Recall that `fork()` starts a child process in the exact same state as the parent process. Therefore,
-the next sieving process starts right at the `???` comment in the above code. The newly spawned process
-wants to read `p` from `newpipe` which was created in the parent process. We have already implemented
-this logic (although we were reading from `pp`), but we have already gone past it! How do we go back up
-to reading `p` again?
+Recall that `fork()` starts a child process in the exact same state as the
+parent process. Therefore, the next sieving process starts right at the `???`
+comment in the above code. The newly spawned process wants to read `p` from
+`newpipe` which was created in the parent process. We have already implemented
+this logic (although we were reading from `pp`), but we have already gone past
+it! How do we go back up to reading `p` again?
 
-The `goto` statement comes to mind, but we can also use a `while` loop and the `continue` statement as
-a replacement.
+The `goto` statement comes to mind, but we can also use a `while` loop and the
+`continue` statement as a replacement.
 
 ```c
 int
@@ -208,14 +217,16 @@ main(int argc, char *argv[])
 }
 ```
 
-In the above code, we wrapped the entire logic for sieving processes in a permanent loop.
-When the second sieving process spawns, it will go back to the beginning of the loop and start
-anew, just like our first sieving process did. Now, we just need to make it read from
-the pipe that our first sieving process created. This can be done by simply renaming `newpipe` to `pp`!
+In the above code, we wrapped the entire logic for sieving processes in a
+permanent loop. When the second sieving process spawns, it will go back to the
+beginning of the loop and start anew, just like our first sieving process did.
+Now, we just need to make it read from the pipe that our first sieving process
+created. This can be done by simply renaming `newpipe` to `pp`!
 
-To make things easier to understand, let's do some renaming. In a process's context, let's call the
-pipe that it reads from (created by its parent) `leftpipe`, and the pipe that it writes to (created by itself)
-`rightpipe`. We end up with the following code:
+To make things easier to understand, let's do some renaming. In a process's
+context, let's call the pipe that it reads from (created by its parent)
+`leftpipe`, and the pipe that it writes to (created by itself) `rightpipe`. We
+end up with the following code:
 
 ```c
 int
@@ -264,18 +275,21 @@ main(int argc, char *argv[])
 }
 ```
 
-Phew! Everything is looking good now. The root process sends numbers to the first sieving process
-through its `rightpipe`.
+Phew! Everything is looking good now. The root process sends numbers to the
+first sieving process through its `rightpipe`.
 
-For the first sieving process, the root process's `rightpipe` is its `leftpipe`. Here, we are "moving"
-the fd from rightpipe to leftpipe, so the two fd slots in `rightpipe` can be reused! The first sieving process
-reads `p = 2` from `leftpipe`, prints it, and creates a new `rightpipe` for its child. Then it passes sieved
-numbers `3, 5, 7, ...` to its child before exiting.
+For the first sieving process, the root process's `rightpipe` is its `leftpipe`.
+Here, we are "moving" the fd from rightpipe to leftpipe, so the two fd slots in
+`rightpipe` can be reused! The first sieving process reads `p = 2` from
+`leftpipe`, prints it, and creates a new `rightpipe` for its child. Then it
+passes sieved numbers `3, 5, 7, ...` to its child before exiting.
 
-The second process does the exact same thing. Its `leftpipe` is the first sieving process's `rightpipe`.
-It reads `p = 3` from `leftpipe`, prints it, passes `5, 7, 11, 13, ...` to its child, and exits.
+The second process does the exact same thing. Its `leftpipe` is the first
+sieving process's `rightpipe`. It reads `p = 3` from `leftpipe`, prints it,
+passes `5, 7, 11, 13, ...` to its child, and exits.
 
-Looks like things are all working! The last thing we need to do is to make sure that everything is cleaned up properly.
+Looks like things are all working! The last thing we need to do is to make sure
+that everything is cleaned up properly.
 
 ## Final code
 
@@ -346,7 +360,8 @@ main(int argc, char *argv[])
 
 ```
 
-The final code looks a bit messy, but it works! We can run `make qemu` and run `primes` in the shell to make sure it works.
+The final code looks a bit messy, but it works! We can run `make qemu` and run
+`primes` in the shell to make sure it works.
 
 ```shell
 $ make qemu
@@ -374,13 +389,17 @@ $
 
 ## What I Learned
 
-I learned a lot about pipes file descriptors from this lab. There were a few things that I didn't know before doing this lab.
+I learned a lot about pipes file descriptors from this lab. There were a few
+things that I didn't know before doing this lab.
 
 For example,
 
-- After a process with an open fd is forked, does the fd in the parent and child point to the same file?
+- After a process with an open fd is forked, does the fd in the parent and child
+  point to the same file?
 - If the parent closes the fd, can the child still use its own fd?
-- What's the difference between `dup(fd)` and simply assigning `fd` to another variable?
+- What's the difference between `dup(fd)` and simply assigning `fd` to another
+  variable?
 - When exactly do we want to close the read/write fds for a pipe?
 
-If you are still a bit unsure about the questions above (like I am), I would encourage you to try this lab yourself!
+If you are still a bit unsure about the questions above (like I am), I would
+encourage you to try this lab yourself!

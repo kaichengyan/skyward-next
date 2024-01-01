@@ -53,6 +53,7 @@ export const Post = defineDocumentType(() => ({
     layout: { type: "string" },
     bibliography: { type: "string" },
     canonicalUrl: { type: "string" },
+    machineTranslated: { type: "boolean" },
   },
   computedFields,
 }));
