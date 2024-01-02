@@ -13,7 +13,7 @@ export async function GET() {
   });
 
   allPosts
-    .filter((post) => !post.draft)
+    .filter((post) => !post.draft && !post.hidden)
     .forEach((post) => {
       feed.item({
         title: post.title,
