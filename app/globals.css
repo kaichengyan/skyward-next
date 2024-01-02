@@ -89,52 +89,50 @@ pre {
   width: 100vw;
 }
 
-article {
-  p,
-  ul,
-  ol,
-  blockquote,
-  pre,
-  table,
-  dl,
-  img,
-  video {
-    @apply mb-2;
-  }
+article p,
+article ul,
+article ol,
+article blockquote,
+article pre,
+article table,
+article dl,
+article img,
+article video {
+  @apply mb-2;
+}
 
-  ul {
-    @apply list-disc list-inside;
-  }
+article ul {
+  @apply list-disc list-inside;
+}
 
-  ol {
-    @apply list-decimal list-inside;
-  }
+article ol {
+  @apply list-decimal list-inside;
+}
 
-  li {
-    @apply ml-4;
-  }
+article li {
+  @apply ml-4;
+}
 
-  li > p {
-    @apply inline;
-  }
+article li > p {
+  @apply inline;
+}
 
-  h1,
-  h2,
-  h3 {
-    @apply before:content-['#'] before:-ml-5 before:w-5 before:inline-block
-    before:font-light before:text-rose-600 before:dark:text-cyan-400
-    font-bold mt-4 mb-2 leading-7;
-  }
+article h1,
+article h2,
+article h3 {
+  @apply before:content-['#'] before:-ml-5 before:w-5 before:inline-block
+  before:font-light before:text-rose-600 before:dark:text-cyan-400
+  font-bold mt-4 mb-2 leading-7;
+}
 
-  h1 {
-    @apply text-2xl;
-  }
+article h1 {
+  @apply text-2xl;
+}
 
-  h2 {
-    @apply text-xl;
-  }
+article h2 {
+  @apply text-xl;
+}
 
-  h3 {
-    @apply text-lg;
-  }
+article h3 {
+  @apply text-lg;
 }
