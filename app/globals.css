@@ -105,8 +105,16 @@ article ul {
   @apply list-disc list-inside;
 }
 
+article ul ul {
+  @apply list-square list-inside;
+}
+
 article ol {
   @apply list-decimal list-inside;
+}
+
+article ol {
+  @apply list-alpha list-inside;
 }
 
 article li {
