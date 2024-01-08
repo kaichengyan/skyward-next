@@ -4,6 +4,7 @@ import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 import lodash from "lodash";
 import TagPill from "@/components/TagPill";
+import GiscusComments from "@/components/GiscusComments";
 
 export function generateMetadata({ params }: { params: { slug: string[] } }) {
   const post = allPosts.find((it) =>
@@ -67,6 +68,9 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
           </div>
         )}
         <Mdx code={post.body.code} />
+        <section className="mt-8">
+          <GiscusComments />
+        </section>
       </article>
     </>
   );
