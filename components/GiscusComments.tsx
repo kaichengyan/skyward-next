@@ -2,7 +2,7 @@
 
 import Giscus from "@giscus/react";
 
-export default function GiscusComments() {
+export default function GiscusComments({ lang }: { lang: string }) {
   return (
     <Giscus
       id="comments"
@@ -16,7 +16,7 @@ export default function GiscusComments() {
       emitMetadata="0"
       inputPosition="top"
       theme="preferred_color_scheme"
-      lang="en"
+      lang={lang}
       loading="lazy"
     />
   );

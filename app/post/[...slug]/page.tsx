@@ -69,7 +69,7 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
         )}
         <Mdx code={post.body.code} />
         <section className="mt-8">
-          <GiscusComments />
+          <GiscusComments lang={post.lang} />
         </section>
       </article>
     </>
