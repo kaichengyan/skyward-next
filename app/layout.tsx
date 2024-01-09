@@ -2,14 +2,12 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import { VercelWebAnalytics } from "@/components/VercelWebAnalytics";
 import "katex/dist/katex.min.css";
-import { Inter } from "next/font/google";
 import React from "react";
 import "./globals.css";
 import "./prism.css";
 import { Providers } from "./providers";
 import { Metadata } from "next";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
