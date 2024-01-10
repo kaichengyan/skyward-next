@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GitHub, Linkedin, Rss, Twitch, Twitter } from "react-feather";
+import { GitHub, Rss, Twitch, Twitter } from "react-feather";
 
 export default function Footer() {
   return (
@@ -32,17 +32,6 @@ export default function Footer() {
           className="inline-block border-0 pb-0"
         >
           <Twitch
-            strokeWidth="1"
-            className="stroke-gray-400 hover:stroke-gray-900
-                           dark:stroke-gray-600 dark:hover:stroke-gray-200
-                           transition duration-300"
-          />
-        </Link>
-        <Link
-          href="https://linkedin.com/in/kaichengyan"
-          className="inline-block border-0 pb-0"
-        >
-          <Linkedin
             strokeWidth="1"
             className="stroke-gray-400 hover:stroke-gray-900
                            dark:stroke-gray-600 dark:hover:stroke-gray-200
