@@ -62,9 +62,9 @@ export default function Footer() {
           />
         </Link>
       </div>
-      <div>Kyle Yan &copy; 2015 - {new Date().getFullYear()}</div>
+      <div>Skyward &copy; 2015 - {new Date().getFullYear()}</div>
       <div className="flex space-x-1">
-        <span>越而胜己</span>
+        <span>Beyond awesome.</span>
         <span>·</span>
         <a
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/"

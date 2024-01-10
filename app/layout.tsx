@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "Skyward",
   },
   description: "Beyond awesome.",
-  authors: [{ name: "Kyle Yan" }],
+  authors: [{ name: "Skyward" }],
 };
 
 export default function RootLayout({
