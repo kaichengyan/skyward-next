@@ -12,9 +12,6 @@ export default function NavBar() {
         >
           Skyward
         </Link>
-        <div className="hidden sm:inline-flex">
-          <ThemeSwitch />
-        </div>
       </div>
       <nav className="flex items-center space-x-4 sm:space-x-8">
         <Link href="/" className="inline-block border-0 pb-0">
@@ -44,6 +41,9 @@ export default function NavBar() {
             Now
           </span>
         </Link>
+        <div className="hidden sm:inline-flex sm:w-11">
+          <ThemeSwitch />
+        </div>
       </nav>
     </header>
   );
