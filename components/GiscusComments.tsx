@@ -9,7 +9,7 @@ export default function GiscusComments({ lang }: { lang: string }) {
   return (
     <Giscus
       id="comments"
-      repo="kaichengyan/skyward-next"
+      repo="skywardpixel/skyward-next"
       repoId="R_kgDOJhOK8g"
       category="Blog Comments"
       categoryId="DIC_kwDOJhOK8s4CcHCg"
