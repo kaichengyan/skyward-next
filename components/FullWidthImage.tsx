@@ -10,7 +10,10 @@ export default function FullWidthImage({
   height: string;
 }) {
   return (
-    <div className="full-width my-3" style={{ height }}>
+    <div
+      className="w-screen max-w-screen relative left-50% right-50% -mx-50vw my-3"
+      style={{ height }}
+    >
       <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
