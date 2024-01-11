@@ -7,9 +7,17 @@ export default defineConfig({
     presetWebFonts({
       provider: "google",
       fonts: {
-        sans: ["Inter", "Noto Sans CJK SC"],
+        sans: ["Inter", "Noto Sans SC", "Noto Sans JP"],
         mono: "Fira Code",
-        overpass: ["Overpass", "Noto Sans CJK SC"],
+        overpass: [
+          "Overpass",
+          "Noto Sans SC",
+          "Noto Sans JP",
+          {
+            name: "sans-serif",
+            provider: "none",
+          },
+        ],
       },
     }),
   ],
