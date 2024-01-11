@@ -1,7 +1,6 @@
 import { compareDesc } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import PostCard from "@/components/PostCard";
-import { overpass } from "./fonts";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,9 +12,7 @@ export default function Home() {
     <>
       <h1 className="flex my-4 items-center space-x-4">
         <Image src="/img/logo.png" width={32} height={32} alt="logo" />
-        <span
-          className={`${overpass.className} inline-block pt-2 font-bold text-3xl`}
-        >
+        <span className="font-overpass inline-block pt-2 font-bold text-3xl">
           Skyward
         </span>
       </h1>

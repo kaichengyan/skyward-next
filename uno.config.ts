@@ -1,5 +1,16 @@
-import { defineConfig, presetIcons, presetUno } from "unocss";
+import { defineConfig, presetIcons, presetUno, presetWebFonts } from "unocss";
 
 export default defineConfig({
-  presets: [presetUno(), presetIcons({})],
+  presets: [
+    presetUno(),
+    presetIcons({}),
+    presetWebFonts({
+      provider: "google",
+      fonts: {
+        sans: ["Inter", "Noto Sans CJK SC"],
+        mono: "Fira Code",
+        overpass: ["Overpass", "Noto Sans CJK SC"],
+      },
+    }),
+  ],
 });

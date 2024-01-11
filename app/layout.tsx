@@ -7,7 +7,6 @@ import "./globals.css";
 import "./prism.css";
 import { Providers } from "./providers";
 import { Metadata } from "next";
-import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={inter.className}>
+      <body className="font-sans">
         <Providers>
           <NavBar />
           <main className="container mx-auto max-w-3xl px-6 mt-2 sm:mt-8">

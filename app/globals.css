@@ -8,6 +8,15 @@ body {
   @apply antialiased;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-overpass;
+}
+
 a {
   color: inherit;
   @apply border-b border-b-gray-300 transition-all duration-100 no-underline dark:border-b-gray-700 hover:border-b-gray-500;
