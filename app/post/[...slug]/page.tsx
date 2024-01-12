@@ -36,13 +36,12 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
   return (
     <>
       {post.tags && post.tags.length > 0 && (
-        <div className="flex space-x-2">
+        <div className="flex mt-1 space-x-2">
           {post.tags.map((tag, idx) => (
             <TagPill tagName={tag} key={idx} />
           ))}
         </div>
       )}
-      <h1 className="font-bold text-3xl mt-2">{post.title}</h1>
       <div className="mt-2 text-gray-500 dark:text-gray-400 space-x-1 text-xs">
         <span>{format(parseISO(post.date), "LLL d, yyyy")}</span>
         <span>·</span>
@@ -54,10 +53,11 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
           </>
         )}
       </div>
+      <h1 className="font-bold text-3xl mt-2">{post.title}</h1>
       <article className="py-4">
         {post.machineTranslated && (
           <div
-            className="flex items-center space-x-2 rounded px-4 py-2 my-4 text-sm
+            className="flex items-center space-x-2 rounded px-4 py-2 mb-2 text-sm
                 bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-400"
           >
             <div className="i-ic-round-translate"></div>

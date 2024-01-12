@@ -26,8 +26,8 @@ a {
   @apply border-none no-underline;
 }
 
-p,
-li {
+article p,
+article li {
   @apply text-neutral-800 dark:text-neutral-200 leading-7 text-ellipsis overflow-hidden;
 }
 
