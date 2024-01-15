@@ -19,7 +19,7 @@ export function GET() {
     .map((post) => ({
       title: post.title,
       description: post.summary ?? "",
-      url: `${SITE_URL}/${post.slug}`,
+      url: `${SITE_URL}/post/${post.slug}`,
       date: post.date,
     }))
     .forEach((postItem) => feed.item(postItem));
