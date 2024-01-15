@@ -2,6 +2,7 @@ import { compareDesc } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import PostCard from "@/components/PostCard";
 import Image from "next/image";
+import LogoImg from "@/images/logo.png";
 
 export default function Home() {
   const posts = allPosts
@@ -11,7 +12,7 @@ export default function Home() {
   return (
     <>
       <h1 className="flex my-4 items-center space-x-4">
-        <Image src="/img/logo.png" width={32} height={32} alt="logo" />
+        <Image src={LogoImg.src} width={32} height={32} alt="logo" />
         <span className="font-overpass inline-block pt-2 font-bold text-3xl">
           Skyward
         </span>
