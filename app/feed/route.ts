@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 
 const SITE_URL = "https://www.skyward.moe";
 
-export async function GET() {
+export function GET() {
   const feed = new Rss({
     title: "Skyward",
     description: "Beyond awesome.",
@@ -14,14 +14,13 @@ export async function GET() {
 
   allPosts
     .filter((post) => !post.draft && !post.hidden)
-    .forEach((post) => {
-      feed.item({
-        title: post.title,
-        description: post.summary ?? "",
-        url: `${SITE_URL}/${post.slug}`,
-        date: post.date,
-      });
-    });
+    .map((post) => ({
+      title: post.title,
+      description: post.summary ?? "",
+      url: `${SITE_URL}/${post.slug}`,
+      date: post.date,
+    }))
+    .forEach((postItem) => feed.item(postItem));
 
   return new Response(feed.xml(), {
     headers: {
