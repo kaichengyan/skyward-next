@@ -1,5 +1,6 @@
 import Rss from "rss";
 import { allPosts } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
 
 const SITE_URL = "https://www.skyward.moe";
 
@@ -14,6 +15,7 @@ export function GET() {
 
   allPosts
     .filter((post) => !post.draft && !post.hidden)
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .map((post) => ({
       title: post.title,
       description: post.summary ?? "",
