@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import lodash from "lodash";
 import TagPill from "@/components/TagPill";
 import GiscusComments from "@/components/GiscusComments";
+import FullWidthImage from "@/components/FullWidthImage";
 
 export function generateMetadata({ params }: { params: { slug: string[] } }) {
   const post = allPosts.find((it) =>
@@ -55,6 +56,15 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
       </div>
       <h1 className="font-bold text-3xl mt-2">{post.title}</h1>
       <article className="py-4">
+        {post.banner && (
+          <div className="mb-6">
+            <FullWidthImage
+              src={post.banner}
+              alt={post.title}
+              height={"400px"}
+            />
+          </div>
+        )}
         {post.machineTranslated && (
           <div
             className="flex items-center space-x-2 rounded px-4 py-2 mb-2 text-sm

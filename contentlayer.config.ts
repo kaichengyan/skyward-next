@@ -48,6 +48,7 @@ export const Post = defineDocumentType(() => ({
     draft: { type: "boolean" },
     hidden: { type: "boolean" },
     summary: { type: "string" },
+    banner: { type: "string" },
     images: { type: "list", of: { type: "string" } },
     authors: { type: "list", of: { type: "string" } },
     layout: { type: "string" },
