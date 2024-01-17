@@ -14,7 +14,7 @@ export default function FullWidthImage({
       className="w-screen max-w-screen relative left-50% right-50% -mx-50vw my-3"
       style={{ height }}
     >
-      <Image src={src} alt={alt} fill className="object-cover" />
+      <Image src={src} alt={alt} fill className="object-cover" quality={75} />
     </div>
   );
 }
