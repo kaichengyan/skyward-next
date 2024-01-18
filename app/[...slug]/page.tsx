@@ -32,7 +32,7 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
 
   return (
     <>
-      <h1 className="font-bold text-3xl my-4">{page.title}</h1>
+      <h1 className="font-overpass font-bold text-3xl my-4">{page.title}</h1>
       <article className="py-4">
         <Mdx code={page.body.code} />
       </article>

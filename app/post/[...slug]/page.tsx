@@ -54,7 +54,7 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
           </>
         )}
       </div>
-      <h1 className="font-bold text-3xl mt-2">{post.title}</h1>
+      <h1 className="font-overpass font-bold text-3xl mt-2">{post.title}</h1>
       <article className="py-4">
         {post.banner && (
           <div className="mb-6">
