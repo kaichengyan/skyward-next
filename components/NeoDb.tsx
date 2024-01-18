@@ -91,7 +91,7 @@ export default async function NeoDb({ url }: { url: string }) {
 
       <div className="flex flex-col space-y-1 overflow-hidden">
         <div className="flex space-x-2">
-          <Link href={`https://neodb.social/${item.url}`} className="border-0">
+          <Link href={`https://neodb.social${item.url}`} className="border-0">
             <h3 className="before:content-[''] my-0 hover:text-slate-600 dark:hover:text-slate-300 transition truncate">
               {item.title}
             </h3>
