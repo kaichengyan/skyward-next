@@ -61,7 +61,7 @@ export default function PostPage({ params }: { params: { slug: string[] } }) {
             <FullWidthImage
               src={post.banner}
               alt={post.title}
-              height={"400px"}
+              height={"300px"}
             />
           </div>
         )}

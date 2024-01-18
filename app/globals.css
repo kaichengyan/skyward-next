@@ -80,9 +80,9 @@ article li > p {
   @apply inline;
 }
 
-article h1,
-article h2,
-article h3 {
+article > h1,
+article > h2,
+article > h3 {
   @apply before:content-['#'] sm:before:-ml-5 before:w-5 before:inline-block
   before:font-light before:text-rose-600 before:dark:text-cyan-400
   font-bold mt-4 mb-2 leading-7;

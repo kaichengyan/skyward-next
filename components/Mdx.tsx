@@ -3,6 +3,7 @@ import SimpleImage from "@/components/SimpleImage";
 import React from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { Tweet } from "react-tweet";
+import NeoDb from "./NeoDb";
 
 const components = {
   SimpleImage,
@@ -12,6 +13,7 @@ const components = {
       <Tweet {...props} />
     </div>
   ),
+  NeoDb,
 };
 
 interface MdxProps {
