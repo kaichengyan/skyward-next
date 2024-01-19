@@ -9,11 +9,15 @@ const components = {
   SimpleImage,
   FullWidthImage,
   Tweet: (props: any) => (
-    <div className="flex justify-center">
+    <div className="flex justify-center custom-component">
       <Tweet {...props} />
     </div>
   ),
-  NeoDb,
+  NeoDb: (props: any) => (
+    <div className="flex justify-center sm:mx-8 custom-component">
+      <NeoDb {...props} />
+    </div>
+  ),
 };
 
 interface MdxProps {
