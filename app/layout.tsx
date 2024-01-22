@@ -29,7 +29,7 @@ export default function RootLayout({
         <Providers>
           <div className="min-h-screen relative">
             <NavBar />
-            <main className="container mx-auto max-w-3xl px-6 mt-2 sm:mt-8">
+            <main className="container mx-auto max-w-4xl px-6 mt-2 sm:mt-8">
               {children}
             </main>
             <Footer />

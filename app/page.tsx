@@ -17,7 +17,7 @@ export default function Home() {
           Skyward
         </span>
       </h1>
-      <div className="py-4">
+      <div className="py-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
