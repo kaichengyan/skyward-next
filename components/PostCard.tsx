@@ -22,7 +22,7 @@ export default function PostCard(post: Post) {
 
         <div className="absolute rounded-xl content-[''] left-0 top-0 h-full w-full block bg-gradient-to-t from-black/70 to-transparent"></div>
 
-        <div className="absolute left-0 bottom-0 py-2 px-4 text-white text-shadow-lg">
+        <div className="absolute left-0 bottom-0 py-4 px-5 text-white text-shadow-lg">
           <div className="flex flex-wrap space-x-1 text-xs text-gray-200 items-center">
             <span>{format(parseISO(post.date), "LLL d, yyyy")}</span>
           </div>
