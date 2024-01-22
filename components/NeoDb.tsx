@@ -77,7 +77,7 @@ export default async function NeoDb({ url }: { url: string }) {
   return item ? (
     <div
       className="flex space-x-4 rounded-xl border-1 my-2 p-4 relative
-          bg-slate-50 border-slate-100 dark:bg-slate-900 dark:border-slate-500"
+          bg-slate-50 border-slate-100 dark:bg-slate-900 dark:border-slate-800"
     >
       <Image
         src={item.cover_image_url!}
