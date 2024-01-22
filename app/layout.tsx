@@ -34,9 +34,9 @@ export default function RootLayout({
             </main>
             <Footer />
             <div
-              className="absolute bg-gradient-to-r from-purple-400 to-red-400
-              right-0 left-0 content-[''] blur-2xl
-              bottom-[calc(100%-150px)] rounded-9999px border-0 opacity-10 aspect-[1/3]"
+              className="absolute right-0 left-0 z--1 bottom-[calc(100%-150px)] aspect-[1/3]
+                bg-gradient-to-r from-purple-400 to-red-400 dark:from-cyan-400 dark:to-blue-400
+                content-[''] blur-3xl rounded-9999px border-0 opacity-20"
             ></div>
           </div>
         </Providers>
