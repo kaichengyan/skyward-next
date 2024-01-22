@@ -28,7 +28,7 @@ export default function NavBar() {
         >
           Now
         </Link>
-        <div className="hidden sm:inline sm:w-11">
+        <div className="w-11">
           <ThemeSwitch />
         </div>
       </nav>
