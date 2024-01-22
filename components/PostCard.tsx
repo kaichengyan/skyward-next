@@ -11,7 +11,7 @@ export default function PostCard(post: Post) {
         </div>
 
         <h2 className="flex justify-start items-center space-x-2">
-          <span className="font-bold text-xl">{post.title}</span>
+          <span className="font-bold text-balance text-xl">{post.title}</span>
           {post.machineTranslated ? (
             <div className="i-ic-round-translate"></div>
           ) : (

@@ -23,15 +23,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head />
       <body className="font-sans">
         <Providers>
-          <NavBar />
-          <main className="container mx-auto max-w-3xl px-6 mt-2 sm:mt-8">
-            {children}
-          </main>
-          <Footer />
+          <div className="min-h-screen relative">
+            <NavBar />
+            <main className="container mx-auto max-w-3xl px-6 mt-2 sm:mt-8">
+              {children}
+            </main>
+            <Footer />
+            <div
+              className="absolute bg-gradient-to-r from-purple-400 to-red-400
+              right-0 left-0 content-[''] blur-2xl
+              bottom-[calc(100%-150px)] rounded-9999px border-0 opacity-10 aspect-[1/3]"
+            ></div>
+          </div>
         </Providers>
         <VercelWebAnalytics />
       </body>
