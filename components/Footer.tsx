@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { GitHub, Rss, Twitch, Twitter } from "react-feather";
 
 export default function Footer() {
   return (
@@ -9,46 +8,52 @@ export default function Footer() {
           href="https://github.com/skywardpixel"
           className="inline-block border-0 pb-0"
         >
-          <GitHub
-            strokeWidth="1"
-            className="stroke-gray-400 hover:stroke-gray-900
-                           dark:stroke-gray-600 dark:hover:stroke-gray-200
+          <div
+            className="i-ri-github-line text-2xl text-gray-400 hover:text-gray-900
+                           dark:text-gray-600 dark:hover:text-gray-200
                            transition duration-300"
-          />
+          ></div>
         </Link>
         <Link
           href="https://twitter.com/skywardpixel"
           className="inline-block border-0 pb-0"
         >
-          <Twitter
-            strokeWidth="1"
-            className="stroke-gray-400 hover:stroke-gray-900
-                           dark:stroke-gray-600 dark:hover:stroke-gray-200
-                           transition duration-300"
-          />
+          <div
+            className="i-ri-twitter-line text-2xl text-gray-400 hover:text-gray-900
+                         dark:text-gray-600 dark:hover:text-gray-200
+                         transition duration-300"
+          ></div>
+        </Link>
+        <Link
+          href="https://mastodon.social/@skywardpixel"
+          className="inline-block border-0 pb-0"
+        >
+          <div
+            className="i-ri-mastodon-line text-2xl text-gray-400 hover:text-gray-900
+                         dark:text-gray-600 dark:hover:text-gray-200
+                         transition duration-300"
+          ></div>
         </Link>
         <Link
           href="https://twitch.tv/sukiyakidon"
           className="inline-block border-0 pb-0"
         >
-          <Twitch
-            strokeWidth="1"
-            className="stroke-gray-400 hover:stroke-gray-900
-                           dark:stroke-gray-600 dark:hover:stroke-gray-200
+          <div
+            className="i-ri-twitch-line text-2xl text-gray-400 hover:text-gray-900
+                           dark:text-gray-600 dark:hover:text-gray-200
                            transition duration-300"
-          />
+          ></div>
         </Link>
         <Link
           href="/feed"
           target="_blank"
           className="inline-block border-0 pb-0"
         >
-          <Rss
-            strokeWidth="1"
-            className="stroke-gray-400 hover:stroke-gray-900
-                           dark:stroke-gray-600 dark:hover:stroke-gray-200
+          <div
+            className="i-ri-rss-line text-2xl text-gray-400 hover:text-gray-900
+                           dark:text-gray-600 dark:hover:text-gray-200
                            transition duration-300"
-          />
+          ></div>
         </Link>
       </div>
       <div>Skyward &copy; 2015 - {new Date().getFullYear()}</div>

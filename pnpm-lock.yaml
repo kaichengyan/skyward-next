@@ -142,6 +142,9 @@ devDependencies:
   '@iconify-json/icon-park-outline':
     specifier: ^1.1.15
     version: 1.1.15
+  '@iconify-json/ri':
+    specifier: ^1.1.19
+    version: 1.1.19
   '@unocss/postcss':
     specifier: ^0.58.2
     version: 0.58.2(postcss@8.4.32)
@@ -1029,6 +1032,12 @@ packages:
 
   /@iconify-json/icon-park-outline@1.1.15:
     resolution: {integrity: sha512-jQbk/ETARyYPjX6HolkdjSLJHsNCfSBfYUqcUQLXYK/1tfuVnQsUdWG2IM2a7VBpxJtrK7r4n1iwPOFaZ5T46g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ri@1.1.19:
+    resolution: {integrity: sha512-S9usTucQOY//J3LGIGZ+A6i8AYGCStDcLKjmWzI2UPnWJo+Xd5dESMQGkhOI5BlG3W4AtH6RmiXcpbPy3krmjQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
