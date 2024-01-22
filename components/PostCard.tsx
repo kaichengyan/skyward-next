@@ -11,16 +11,16 @@ export default function PostCard(post: Post) {
       passHref
       className="border-0"
     >
-      <div className="relative rounded-xl shadow hover:shadow-2xl hover:scale-102 border-none cursor-pointer transition duration-200 aspect-16/9">
+      <div className="relative rounded-3xl shadow hover:shadow-2xl hover:scale-102 border-none cursor-pointer transition duration-200 aspect-16/9">
         <Image
           src={post.banner ?? "/images/banners/default.png"}
           alt={post.title}
           fill
           quality={25}
-          className="rounded-xl"
+          className="rounded-3xl"
         />
 
-        <div className="absolute rounded-xl content-[''] left-0 top-0 h-full w-full block bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="absolute rounded-3xl content-[''] left-0 top-0 h-full w-full block bg-gradient-to-t from-black/70 to-transparent"></div>
 
         <div className="absolute left-0 bottom-0 py-4 px-5 text-white text-shadow-lg">
           <div className="flex flex-wrap space-x-1 text-xs text-gray-200 items-center">
