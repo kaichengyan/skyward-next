@@ -16,6 +16,7 @@ import rehypeCitation from "rehype-citation";
 import rehypeImgSize from "rehype-img-size";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypePresetMinify from "rehype-preset-minify";
+import remarkRuby from "remark-ruby";
 
 const root = process.cwd();
 
@@ -100,7 +101,7 @@ export default makeSource({
   date: { timezone: "America/Los_Angeles" },
   mdx: {
     cwd: process.cwd(),
-    remarkPlugins: [remarkGfm, remarkMath],
+    remarkPlugins: [remarkGfm, remarkMath, remarkRuby],
     rehypePlugins: [
       rehypeSlug,
       rehypeAutolinkHeadings,
