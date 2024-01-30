@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center space-y-1 pt-8 pb-4 text-xs text-center text-gray-400 dark:text-gray-600">
+    <footer className="flex flex-col items-center space-y-1 mt-12 py-4 text-xs text-center text-gray-400 dark:text-gray-600">
       <div className="flex space-x-6 pb-3">
         <Link
           href="https://github.com/skywardpixel"

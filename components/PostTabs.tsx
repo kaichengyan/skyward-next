@@ -32,7 +32,7 @@ export default function PostTabs() {
             Skyward
           </span>
         </h1>
-        <Tab.List className="flex space-x-1 rounded-xl shadow-inner bg-slate-200 dark:bg-slate-800 p-1">
+        <Tab.List className="flex space-x-1 rounded-xl shadow-inner bg-slate-100 dark:bg-slate-800 p-1">
           {tabs.map((tab) => (
             <Tab
               key={tab.title}
