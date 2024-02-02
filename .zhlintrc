@@ -1,3 +1,6 @@
 {
-  "preset": "default"
+  "preset": "default",
+  "rules": {
+    "unifiedPunctuation": "traditional"
+  }
 }
